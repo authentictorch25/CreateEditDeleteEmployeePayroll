@@ -102,3 +102,14 @@ const remove= (node)=>{
   /// Using the create inner html to display the tabular data on the home webpage
   createInnerHtml();
 } 
+
+const update = (node) => {
+  /// Finding whether the data is present in the employee payroll list or not
+  let empPayrollData = empPayrollList.find((empData) => empData._id == node.id);
+  /// Finding whether the element is found or not in the local storage of the employee salary list
+  if (!empPayrollData) return;
+  /// Creating a different list for employee payroll data and storing it in the local storage
+  localStorage.setItem("editEmp", JSON.stringify(empPayrollData));
+  /// Redirecting to thee employee payroll page
+  window.location.replace(site_properties.emp_payroll_page);
+};
